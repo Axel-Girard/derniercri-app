@@ -1,3 +1,25 @@
+# Dernicri-app
+
+# Installation
+
+Clone repository
+Install dependancies `npm install` (or `yarn`)
+Launch application (android) `yarn android` ios `yarn ios`
+And a device, install the application "Expo GO" then scan the QR code provide by your terminal
+
+# Méthodologie pour tout le projet de test
+
+## Back
+
+1. Création du "back" sur Heroku.
+2. J'ai commencé par lancer un serveur très basique pour tester Heroku, que j'avais une fois essayé rapidement pour un projet scolaire. J'ai eu la bonne surprise que tout c'est très bien passé et à été très rapide.
+3. J'ai créé un point d'api pour le back qui renvoie une statue 201 si la personne arrive à se connecter, dans le cas ou l'utilisateur.rice fait une erreur de saisie, une erreur 401 est renvoyée.
+4. J'ai déployé le serveur "de login" sur Heroku et testé avec postman pour faire une requete si le serveur marchait correctement.
+
+## Application
+
+1. Installation de l'environnement, je ne connaissais pas expo donc ça m'a pris un peu de temps mais une fois la documentation de la solution lu, c'est assez simple et rapide.
+
 # My Universal React Project
 
 <p>
