@@ -4,7 +4,7 @@
 
 Clone repository
 Install dependancies `npm install` (or `yarn`)
-Launch application (android) `yarn android` ios `yarn ios`
+Launch application `yarn start`
 And a device, install the application "Expo GO" then scan the QR code provide by your terminal
 
 # Méthodologie pour tout le projet de test

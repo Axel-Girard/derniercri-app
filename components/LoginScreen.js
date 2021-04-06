@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {
   StyleSheet,
+  SafeAreaView,
   View,
   Text,
   Image,
@@ -14,7 +15,6 @@ class LoginScreen extends Component {
   state = {
     login: 'dernier', // normally it's empty but to test it's helpful
     password: 'cri', // normally it's empty but to test it's helpful
-    isAuthorized: false,
     isLoading: false, // if is true, show a spinner
     error: '', // in case of the login fail, we want to tell it to the user
   }
@@ -31,9 +31,9 @@ class LoginScreen extends Component {
     const onSuccess = () => {
       this.setState({
         isLoading: false,
-        isAuthorized: true,
         error: '',
       });
+      this.props.setLogin(true)
     };
 
     const onFailure = error => {
@@ -53,7 +53,7 @@ class LoginScreen extends Component {
 
   render() {
     return (
-      <>
+      <SafeAreaView style={styles.container} >
         <View style={styles.header}>
           <Text>Welcome to this test application</Text>
           <Image source={require('../assets/logo.png')} />
@@ -87,15 +87,18 @@ class LoginScreen extends Component {
             </TouchableOpacity>
             <Spinner visible={this.state.isLoading} />
         </View>
-      </>
+      </SafeAreaView>
     );
     }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   header: {
-    flex: 0.2,
-    paddingTop: 50,
+    flex: 0.4,
+    justifyContent:"center",
     alignItems: "center",
   },
   main: {

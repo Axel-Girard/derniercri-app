@@ -1,19 +1,17 @@
-import React from "react";
-import { StyleSheet, SafeAreaView } from "react-native";
-import LoginScreen from './components/LoginScreen'
+import * as React from "react";
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import HomeScreen from './components/HomeScreen'
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container} >
-      <LoginScreen />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 25,
-    backgroundColor: "#fafbfb",
-  },
-})
