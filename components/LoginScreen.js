@@ -16,6 +16,7 @@ class LoginScreen extends Component {
     password: 'cri', // normally it's empty but to test it's helpful
     isAuthorized: false,
     isLoading: false, // if is true, show a spinner
+    error: '', // in case of the login fail, we want to tell it to the user
   }
 
   APIKit = axios.create({
@@ -25,22 +26,27 @@ class LoginScreen extends Component {
 
   onPressLogin() {
     const { login, password } = this.state;
-    const payload = { login, password };
-    console.log(payload);
+    const credential = { login, password };
 
     const onSuccess = () => {
-      this.setState({isLoading: false, isAuthorized: true});
+      this.setState({
+        isLoading: false,
+        isAuthorized: true,
+        error: '',
+      });
     };
 
     const onFailure = error => {
-      console.log(error);
-      this.setState({isLoading: false});
+      this.setState({
+        error: error.response.data,
+        isLoading: false,
+      });
     };
 
     // Show spinner when call is made
     this.setState({isLoading: true});
 
-    axios.post('https://dernier-cri.herokuapp.com/', payload)
+    axios.post('https://dernier-cri.herokuapp.com/', credential)
       .then(onSuccess)
       .catch(onFailure);
   }
@@ -71,6 +77,7 @@ class LoginScreen extends Component {
               />
             </View>
 
+            { this.state.error ? <Text style={styles.errorText}>{this.state.error}</Text>: null }
             <Text>Credential: dernier/cri</Text>
 
             <TouchableOpacity
@@ -118,6 +125,9 @@ const styles = StyleSheet.create({
   },
   loginText: {
     color: 'white'
+  },
+  errorText: {
+    color: 'red',
   },
 });
 
