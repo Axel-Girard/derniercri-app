@@ -19,6 +19,7 @@ And a device, install the application "Expo GO" then scan the QR code provide by
 ## Application
 
 1. Installation de l'environnement, je ne connaissais pas expo donc ça m'a pris un peu de temps mais une fois la documentation de la solution lu, c'est assez simple et rapide.
+2. Création d'un page de login (pour le design, j'ai réutilisé celui donné sur le [tutoriel](https://code.tutsplus.com/tutorials/common-react-native-app-layouts-login-page--cms-27639) en adptant les couleurs sur le logo de Dernier cri)
 
 # My Universal React Project
 

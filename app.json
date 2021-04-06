@@ -1,0 +1,8 @@
+{
+    "name": "Dernier Cri App",
+    "expo": {
+      "name": "derniercri-app",
+      "version": "1.0.0",
+      "orientation": "portrait"
+    }
+  }
