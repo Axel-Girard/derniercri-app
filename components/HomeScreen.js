@@ -16,7 +16,7 @@ class HomeScreen extends Component {
     if (!isLogin) {
       return (<LoginScreen setLogin={this.setLogin} />);
     } else {
-      return (<PokedexScreen />);
+      return (<PokedexScreen navigation={this.props.navigation} />);
     }
   }
 }

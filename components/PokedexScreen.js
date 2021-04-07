@@ -1,8 +1,9 @@
 import React, { Component, PureComponent } from "react";
 import {
-  SafeAreaView,
+  View,
   StyleSheet,
   FlatList,
+  TouchableHighlight,
 } from "react-native";
 import { ListItem, Avatar } from 'react-native-elements'
 import axios from 'axios';
@@ -19,12 +20,7 @@ class PokedexScreen extends Component {
   fetchPokemon(pokemon) {
     const onSuccess = ({data}) => {
       const pokemons = this.state.pokemons;
-      const pokemon = {
-        id: data.id,
-        name: data.name,
-        avatar: data.sprites.front_default,
-        types: data.types,
-      };
+      const pokemon = data;
       let sortPokemont = pokemons.concat(pokemon)
       // sort data on id 
       // because we need to do a lot of fetch and don't know which ending first
@@ -77,18 +73,23 @@ class PokedexScreen extends Component {
   render() {
     const pokemons = this.state.pokemons;
     return (
-      <SafeAreaView style={styles.container} >
+      <View style={styles.container} >
         <Spinner visible={this.state.isLoading} />
         { pokemons &&
           <FlatList
             data={pokemons}
-            renderItem={({item}) => <PokemonListItem pokemon={item} />}
+            renderItem={({item}) =>
+              <PokemonListItem 
+                pokemon={item}
+                navigation={this.props.navigation}
+              />
+            }
             keyExtractor={pokemon => `list-item-${pokemon.id}`}
             onEndReached={this.fetchPokemonList.bind(this)}
             onEndReachedThreshold={0.7}
           />
         }
-      </SafeAreaView>
+      </View>
     );
   }
 }
@@ -97,14 +98,17 @@ class PokemonListItem extends PureComponent {
   render() {
     const item = this.props.pokemon;
     return (
-      <ListItem bottomDivider>
-        <Avatar source={{uri: item.avatar}} />
-        <ListItem.Content>
-          <ListItem.Title>{item.name}</ListItem.Title>
-          <ListItem.Subtitle>{item.types.map(type => type.type.name).join(', ')}</ListItem.Subtitle>
-        </ListItem.Content>
-        <ListItem.Chevron />
-      </ListItem>
+      <TouchableHighlight 
+        onPress={() => { this.props.navigation.navigate("Details", {pokemon: item}) }}>
+        <ListItem bottomDivider>
+          <Avatar source={{uri: item.sprites.front_default}} />
+          <ListItem.Content>
+            <ListItem.Title>{item.name}</ListItem.Title>
+            <ListItem.Subtitle>{item.types.map(type => type.type.name).join(', ')}</ListItem.Subtitle>
+          </ListItem.Content>
+          <ListItem.Chevron />
+        </ListItem>
+      </TouchableHighlight>
     )
   }
 }

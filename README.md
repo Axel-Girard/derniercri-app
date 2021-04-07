@@ -20,7 +20,8 @@ And a device, install the application "Expo GO" then scan the QR code provide by
 
 1. Installation de l'environnement, je ne connaissais pas expo donc ça m'a pris un peu de temps mais une fois la documentation de la solution lu, c'est assez simple et rapide.
 2. Création d'un page de login (pour le design, j'ai réutilisé celui donné sur le [tutoriel](https://code.tutsplus.com/tutorials/common-react-native-app-layouts-login-page--cms-27639) en adptant les couleurs sur le logo de Dernier cri)
-3. Mise en place d'un système de navigation et de la liste des pokemons qui se 
+3. Mise en place d'un système de navigation et de la liste des pokemons qui se charge en "lazy loading" une fois arrivé à la fin de la liste on charge les suivants et suivantes.
+4. Ajout de la vue détails à la stack on peut donc naviguer entre la liste et le détail de chaque pokémon.
 
 # Points de bloquage
 
@@ -30,6 +31,12 @@ And a device, install the application "Expo GO" then scan the QR code provide by
    2. Etant donné que chaque pokemon doit être fetch séparément (limitation de l'API), l'ordre dans lequel ils/elles sont "téléchargé.e.s" n'est pas ordonné, il faut donc trier à chaque fois avant de rajouter un pokemon au state. Même en enlevant le tri j'ai toujours un warning concernant `VirtualizedList: You have a large list that is slow to update[...]` j'en déduit que ça ne vient pas ça non plus.
    3. Pour éviter de modifier le tableau du state que je rend ensuite, j'ai tenté de créé une liste alternative qui ne complète la liste des pokemons que lorsqu'ils sont tous chargés mais ça ne change rien. (En venant regarder si tous les pokemons sont chargés dans un `componentDidUpdate`).
    4. Enfin j'ai tenté de "réduire chaque objet", l'api donnant beaucoup d'information j'ai tenté de récupérer uniquement les éléments dont j'avais besoin pour construire ma liste, c'est à dire, id, nom, type et le sprite de face. Mais j'avais toujours le warning qui apparait au bout de quelques reload. (même si ça reste fluide sur mon téléphone, le plus long étant le téléchargement des sprites)
+
+# Améliorations
+
+1. Dans l'état l'application n'est pas réellement utilisable, scroller pendant 20 minutes pour trouver le dernier pokemon, c'est pas très user friendly.
+2. Testé sous iOS, mais j'ai ni mac ni téléphone iOS donc c'est impossible.
+3. Mettre un fond en fonction du type de chaque pokemon sur la vue détails.
 
 # My Universal React Project
 
