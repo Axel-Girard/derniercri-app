@@ -19,11 +19,6 @@ class LoginScreen extends Component {
     error: '', // in case of the login fail, we want to tell it to the user
   }
 
-  APIKit = axios.create({
-    baseURL: 'https://dernier-cri.herokuapp.com/',
-    timeout: 10000,
-  });
-
   onPressLogin() {
     const { login, password } = this.state;
     const credential = { login, password };
