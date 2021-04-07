@@ -13,7 +13,7 @@ class PokedexScreen extends Component {
     isLoading: false, // if is true, show a spinner
     pokemons: [],
     offset: 0,
-    limit: 20
+    limit: 20,
   }
 
   fetchPokemon(pokemon) {
@@ -41,11 +41,15 @@ class PokedexScreen extends Component {
     const limit =  this.state.limit;
 
     const onSuccess = ({data}) => {
+      if (data.count < offset + limit) {
+        this.setState({isLoading: false});
+        return
+      }
       const results = data.results;
 
       results.forEach((pokemon, i) => {
         this.fetchPokemon(pokemon);
-        if (i == limit - 1) {
+        if (i >= results.length - 1) {
           // when we fetch the last pokemon we stop the spinner
           // their may be a better way to do it, though
           this.setState({isLoading: false});
