@@ -11,10 +11,10 @@
 
 ## Back
 
-1. Création du "back" sur Heroku.
-2. J'ai commencé par lancer un serveur très basique pour tester Heroku, que j'avais une fois essayé rapidement pour un projet scolaire. J'ai eu la bonne surprise que tout c'est très bien passé et à été très rapide.
+1. Création du "back" sur Heroku. J'ai choisi Heroku parce que je l'avais déjà rapidement utilisé pour un projet scolaire donc je connaissais déjà un peu.
+2. J'ai commencé par lancer un serveur très basique pour tester. J'ai eu la bonne surprise que tout ce soit très bien passé et à été très rapide, dans mes souvenirs c'était un peu long.
 3. J'ai créé un point d'api pour le back qui renvoie une statue 201 si la personne arrive à se connecter, dans le cas ou l'utilisateur.rice fait une erreur de saisie, une erreur 401 est renvoyée.
-4. J'ai déployé le serveur "de login" sur Heroku et testé avec postman pour faire une requete si le serveur marchait correctement.
+4. J'ai déployé le serveur "de login" sur Heroku et testé avec postman pour faire une requete si le serveur marchait correctement (avec et sans les bons credentials).
 
 ## Application
 
@@ -23,6 +23,7 @@
 3. Mise en place d'un système de navigation et de la liste des pokemons qui se charge en "lazy loading" une fois arrivé à la fin de la liste on charge les suivants et suivantes.
 4. Ajout de la vue détails à la stack on peut donc naviguer entre la liste et le détail de chaque pokémon.
 5. Ajout du drawer avec la vue Profile.
+6. Refacto pour séparer les composants et les screens.
 
 # Points de bloquage
 
@@ -40,6 +41,20 @@
 3. Mettre un fond en fonction du type de chaque pokemon sur la vue détails.
 4. Ajout un splashscreen, c'est plus sympa.
 5. Enregistrer les données afin de ne pas se reconnecter à chaque fois.
+
+Pour ce qui est des améliorations techniques, je pense que certaines choses pourraient être améliorées.
+1. Dans un premier temps, ajouter des tests sur les composants, les routes et end to end.
+2. Mettre en place un linter (je pense à ESLint), cela permetterai d'avoir un code plus consistant et de prévenir certains bugs.
+3. Un peu dans la même optique que les deux autres points, ajouter Storybook. Dans le cadre d'une application aussi petite que celle-ci, l'intérêt est minime car chaque composant est rapidement accesible mais si l'application était vouée à grandir cela permetterais de les tester rapidement.
+4. Pour le côté back, il serait bon d'ajouter une documentation de l'API (types Swagger) et des tests (même si dans l'état actuel il est difficile de vraiment mettre en place des tests avec du code en dur).
+5. Mettre en place du déploiement continue, qui lance automatiquement une série de test et qui pourrait, à intervalle régulier, lancer un build (tant sur l'application que sur le back) afin de vérifier que l'application build correctement.
+
+# API Back
+
+Comme je l'ai dit plus haut, je n'ai pas mit en place de documentation de l'API en ligne, mais là voici :
+Il y a un seul point d'entré '/' en `POST`, qui attend deux paramètre en body:
+- login: (string) = qui contient le login de l'utilisateur.rice (ici `dernier`, tout en minuscule)
+- password: (string) = qui contient le mot de passe de l'utilisateur.rice (ici `cri`, tout en minuscule)
 
 # My Universal React Project
 
