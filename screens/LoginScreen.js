@@ -60,6 +60,7 @@ class LoginScreen extends Component {
                 onChangeText={(login) => this.setState({login})}
                 placeholder="Login"
                 placeholderTextColor="#003f5c"
+                autoCapitalize="none"
               />
             </View>
             <View style={styles.inputView}>
@@ -69,6 +70,7 @@ class LoginScreen extends Component {
                 placeholderTextColor="#003f5c"
                 secureTextEntry={true}
                 onChangeText={(password) => this.setState({password})}
+                autoCapitalize="none"
               />
             </View>
 
@@ -92,7 +94,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
-    flex: 0.4,
+    flex: 0.6,
     justifyContent:"center",
     alignItems: "center",
   },
@@ -129,6 +131,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 22,
+    marginBottom: 20,
   }
 });
 
