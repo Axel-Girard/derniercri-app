@@ -37,7 +37,7 @@ const DetailsScreen = ({ navigation, route }) => {
         <FlatList
           data={pokemon.stats}
           renderItem={({item}) => <Item stat={item} />}
-          keyExtractor={item => {item.stat.name}}
+          keyExtractor={item => `list-item-${item.stat.name}`}
           ListHeaderComponent={() => <Header />}
         />
       </View>
