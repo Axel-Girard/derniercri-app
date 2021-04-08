@@ -13,8 +13,8 @@ import Spinner from 'react-native-loading-spinner-overlay';
 
 class LoginScreen extends Component {
   state = {
-    login: 'dernier', // normally it's empty but to test it's helpful
-    password: 'cri', // normally it's empty but to test it's helpful
+    login: '',
+    password: '',
     isLoading: false, // if is true, show a spinner
     error: '', // in case of the login fail, we want to tell it to the user
   }
