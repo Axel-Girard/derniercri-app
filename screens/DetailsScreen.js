@@ -5,9 +5,12 @@ import {
   Text,
   FlatList,
 } from "react-native";
-import { ListItem, Avatar } from 'react-native-elements';
+import { Avatar } from 'react-native-elements';
 
-const DetailsScreen = ({ navigation, route }) => {
+import HeaderStat from '../components/HeaderStat';
+import ItemStat from '../components/ItemStat';
+
+const DetailsScreen = ({ route }) => {
   const pokemon = route.params.pokemon;
 
   return (
@@ -36,31 +39,14 @@ const DetailsScreen = ({ navigation, route }) => {
       <View style={styles.stats}>
         <FlatList
           data={pokemon.stats}
-          renderItem={({item}) => <Item stat={item} />}
+          renderItem={({item}) => <ItemStat stat={item} />}
           keyExtractor={item => `list-item-${item.stat.name}`}
-          ListHeaderComponent={() => <Header />}
+          ListHeaderComponent={() => <HeaderStat />}
         />
       </View>
     </View>
   );
 };
-
-const Header = () => (
-  <ListItem bottomDivider>
-    <ListItem.Content>
-      <ListItem.Title style={styles.headerList}>Base stats</ListItem.Title>
-    </ListItem.Content>
-  </ListItem>
-)
-
-const Item = ({ stat }) => (
-  <ListItem bottomDivider>
-    <ListItem.Content style={styles.ListItem}>
-      <ListItem.Subtitle style={styles.Subtitle}>{stat.stat.name}</ListItem.Subtitle>
-      <ListItem.Title style={styles.Title}>{stat.base_stat}</ListItem.Title>
-    </ListItem.Content>
-  </ListItem>
-);
 
 const styles = StyleSheet.create({
   container: {
@@ -105,21 +91,6 @@ const styles = StyleSheet.create({
   },
   stats: {
     flex: 0.6,
-  },
-  headerList: {
-    fontWeight: "bold",
-  },
-  ListItem: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent:"center",
-    alignItems: "center",
-  },
-  Subtitle: {
-    flex: 0.5,
-  },
-  Title: {
-    flex: 1,
   },
 });
 

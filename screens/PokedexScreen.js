@@ -1,13 +1,13 @@
-import React, { Component, PureComponent } from "react";
+import React, { Component } from "react";
 import {
   View,
   StyleSheet,
   FlatList,
-  TouchableHighlight,
 } from "react-native";
-import { ListItem, Avatar } from 'react-native-elements'
 import axios from 'axios';
 import Spinner from 'react-native-loading-spinner-overlay';
+
+import PokemonListItem from '../components/ItemPokemon';
 
 class PokedexScreen extends Component {
   state = {
@@ -91,25 +91,6 @@ class PokedexScreen extends Component {
         }
       </View>
     );
-  }
-}
-
-class PokemonListItem extends PureComponent {
-  render() {
-    const item = this.props.pokemon;
-    return (
-      <TouchableHighlight 
-        onPress={() => { this.props.navigation.navigate("Details", {pokemon: item}) }}>
-        <ListItem bottomDivider>
-          <Avatar source={{uri: item.sprites.front_default}} />
-          <ListItem.Content>
-            <ListItem.Title>{item.name}</ListItem.Title>
-            <ListItem.Subtitle>{item.types.map(type => type.type.name).join(', ')}</ListItem.Subtitle>
-          </ListItem.Content>
-          <ListItem.Chevron />
-        </ListItem>
-      </TouchableHighlight>
-    )
   }
 }
 

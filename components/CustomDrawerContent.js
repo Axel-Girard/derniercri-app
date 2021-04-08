@@ -7,7 +7,7 @@ import { Avatar } from 'react-native-elements';
 
 const avatar = require('../assets/avatar.jpg')
 
-function CustomDrawerContent(props) {
+const CustomDrawerContent = props => {
   return (
     <DrawerContentScrollView>
       <Avatar rounded size="xlarge" source={avatar} />

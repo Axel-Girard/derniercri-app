@@ -50,7 +50,7 @@ class LoginScreen extends Component {
     return (
       <SafeAreaView style={styles.container} >
         <View style={styles.header}>
-          <Text>Welcome to this test application</Text>
+          <Text style={styles.title}>Welcome to this test application</Text>
           <Image source={require('../assets/logo.png')} />
         </View>
         <View style={styles.main}>
@@ -73,7 +73,7 @@ class LoginScreen extends Component {
             </View>
 
             { this.state.error ? <Text style={styles.errorText}>{this.state.error}</Text>: null }
-            <Text>Credential: dernier/cri</Text>
+            <Text>Credentials: dernier/cri</Text>
 
             <TouchableOpacity
               style={styles.loginBtn}
@@ -127,6 +127,9 @@ const styles = StyleSheet.create({
   errorText: {
     color: 'red',
   },
+  title: {
+    fontSize: 22,
+  }
 });
 
 export default LoginScreen

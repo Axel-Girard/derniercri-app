@@ -8,7 +8,7 @@ import { Avatar } from 'react-native-elements';
 
 const avatar = require('../assets/avatar.jpg')
 
-function Profile() {
+const Profile = () => {
   return (
     <View style={styles.container}>
       <View style={styles.avatarView}>

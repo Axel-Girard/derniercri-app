@@ -3,8 +3,8 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import PokedexScreen from './PokedexScreen';
 import LoginScreen from './LoginScreen';
-import CustomDrawerContent from './CustomDrawerContent';
-import Profile from './Profile';
+import CustomDrawerContent from '../components/CustomDrawerContent';
+import Profile from '../components/Profile';
 
 const Drawer = createDrawerNavigator();
 
