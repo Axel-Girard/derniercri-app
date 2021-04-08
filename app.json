@@ -1,8 +1,11 @@
 {
-    "name": "Dernier Cri App",
-    "expo": {
-      "name": "derniercri-app",
-      "version": "1.0.0",
-      "orientation": "portrait"
+  "name": "Dernier Cri App",
+  "expo": {
+    "name": "derniercri-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "android": {
+      "package": "com.axel942.derniercriapp"
     }
   }
+}

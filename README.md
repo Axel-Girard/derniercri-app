@@ -2,10 +2,10 @@
 
 # Installation
 
-Clone repository
-Install dependancies `npm install` (or `yarn`)
-Launch application `yarn start`
-And a device, install the application "Expo GO" then scan the QR code provide by your terminal
+1. Clone repository
+2. Install dependancies `yarn install`
+3. Launch application `yarn start`
+4. On a device, install the application "Expo GO" then scan the QR code provide by your terminal
 
 # Méthodologie pour tout le projet de test
 
@@ -22,6 +22,7 @@ And a device, install the application "Expo GO" then scan the QR code provide by
 2. Création d'un page de login (pour le design, j'ai réutilisé celui donné sur le [tutoriel](https://code.tutsplus.com/tutorials/common-react-native-app-layouts-login-page--cms-27639) en adptant les couleurs sur le logo de Dernier cri)
 3. Mise en place d'un système de navigation et de la liste des pokemons qui se charge en "lazy loading" une fois arrivé à la fin de la liste on charge les suivants et suivantes.
 4. Ajout de la vue détails à la stack on peut donc naviguer entre la liste et le détail de chaque pokémon.
+5. Ajout du drawer avec la vue Profile.
 
 # Points de bloquage
 
@@ -37,6 +38,8 @@ And a device, install the application "Expo GO" then scan the QR code provide by
 1. Dans l'état l'application n'est pas réellement utilisable, scroller pendant 20 minutes pour trouver le dernier pokemon, c'est pas très user friendly.
 2. Testé sous iOS, mais j'ai ni mac ni téléphone iOS donc c'est impossible.
 3. Mettre un fond en fonction du type de chaque pokemon sur la vue détails.
+4. Ajout un splashscreen, c'est plus sympa.
+5. Enregistrer les données afin de ne pas se reconnecter à chaque fois.
 
 # My Universal React Project
 
