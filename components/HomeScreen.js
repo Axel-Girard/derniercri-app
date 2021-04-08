@@ -1,7 +1,12 @@
 import React, { Component } from "react";
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import LoginScreen from './LoginScreen';
 import PokedexScreen from './PokedexScreen';
+import LoginScreen from './LoginScreen';
+import CustomDrawerContent from './CustomDrawerContent';
+import Profile from './Profile';
+
+const Drawer = createDrawerNavigator();
 
 class HomeScreen extends Component {
   state = {
@@ -16,7 +21,12 @@ class HomeScreen extends Component {
     if (!isLogin) {
       return (<LoginScreen setLogin={this.setLogin} />);
     } else {
-      return (<PokedexScreen navigation={this.props.navigation} />);
+      return (
+        <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />}>
+          <Drawer.Screen name="Pokedex" component={PokedexScreen} />
+          <Drawer.Screen name="Profile" component={Profile} />
+        </Drawer.Navigator>
+      );
     }
   }
 }

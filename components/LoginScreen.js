@@ -33,7 +33,7 @@ class LoginScreen extends Component {
 
     const onFailure = error => {
       this.setState({
-        error: error.response.data,
+        error: error?.response?.data,
         isLoading: false,
       });
     };
